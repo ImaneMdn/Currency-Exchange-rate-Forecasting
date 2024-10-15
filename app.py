@@ -3,6 +3,7 @@ import pandas as pd
 import yfinance as yf
 import streamlit as st
 import joblib
+from keras.models import load_model
 from datetime import datetime, timedelta
 import plotly.express as px
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
@@ -18,19 +19,21 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Loading the saved models
-def load_model():
+def load_models():
     svr_model = joblib.load('models/Best_SVR_Model.pkl')
     rf_model = joblib.load('models/Best_RF_Model.pkl')
+    mlp_model = load_model('models/Best_MLP_Model.h5')
+    cnn_model = load_model('models/Best_CNN_Model.h5')
     # mlp_model = joblib.load('models/Best_MLP_Model.pkl')
     # cnn_model = joblib.load('models/Best_CNN_Model.pkl')
     return {
         'SVR': svr_model,
         'RF': rf_model,
-        # 'MLP': mlp_model,
-        # 'CNN': cnn_model
+        'MLP': mlp_model,
+        'CNN': cnn_model
     }
     
-models = load_model()
+models = load_models()
 
 # Fetching the dataset
 def fetch_data(currency, start, end):
