@@ -19,7 +19,7 @@ st.markdown("""
 
 # Loading the saved models
 def load_model():
-    svr_model = joblib.load('Currency-Exchange-rate-Forecasting//Best_SVR_Model.pkl')
+    # svr_model = joblib.load('Currency-Exchange-rate-Forecasting//Best_SVR_Model.pkl')
     rf_model = joblib.load('Currency-Exchange-rate-Forecasting//Best_RF_Model.pkl')
     mlp_model = joblib.load('Currency-Exchange-rate-Forecasting//Best_MLP_Model.pkl')
     cnn_model = joblib.load('Currency-Exchange-rate-Forecasting//Best_CNN_Model.pkl')
