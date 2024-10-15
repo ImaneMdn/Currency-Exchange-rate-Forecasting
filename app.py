@@ -21,13 +21,13 @@ st.markdown("""
 def load_model():
     svr_model = joblib.load('models/Best_SVR_Model.pkl')
     rf_model = joblib.load('models/Best_RF_Model.pkl')
-    mlp_model = joblib.load('models/Best_MLP_Model.pkl')
-    cnn_model = joblib.load('models/Best_CNN_Model.pkl')
+    # mlp_model = joblib.load('models/Best_MLP_Model.pkl')
+    # cnn_model = joblib.load('models/Best_CNN_Model.pkl')
     return {
         'SVR': svr_model,
         'RF': rf_model,
-        'MLP': mlp_model,
-        'CNN': cnn_model
+        # 'MLP': mlp_model,
+        # 'CNN': cnn_model
     }
     
 models = load_model()
