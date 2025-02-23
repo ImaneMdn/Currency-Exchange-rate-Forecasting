@@ -38,6 +38,10 @@ def fetch_data(currency, start, end):
     try:
         # Fetching data from Yahoo Finance
         data = yf.download(currency+'=X', start, end)
+        if isinstance(data.columns, pd.MultiIndex):
+           data.columns = data.columns.droplevel(1)
+           data.columns.name = None  
+           data = data.rename_axis("Date").reset_index().set_index("Date")
         if not data.empty:
             st.success(f"Data fetched successfully from Yahoo Finance API!")
             return data
@@ -104,7 +108,7 @@ st.header('Currency Exchange Rate Forecasting Dashboard')
 currency = st.sidebar.text_input('Select the currency exchange pair (e.g., GBPUSD):', 'GBPUSD')
 
 start = datetime(2014, 1, 1)
-end = datetime(2024, 8, 1)
+end = datetime(2025, 1, 1)
 
 # Downloading historical data for the selected currency exchange rate pair
 GBPUSD_Data = fetch_data(currency, start, end)
