@@ -36,7 +36,7 @@ models = load_models()
 # Fetching the dataset
 def fetch_data(currency, start, end):
     try:
-        # Fetching data from Yahoo Finance
+        # Fetching data from Yahoo Finance API
         data = yf.download(currency+'=X', start, end)
         if isinstance(data.columns, pd.MultiIndex):
            data.columns = data.columns.droplevel(1)
