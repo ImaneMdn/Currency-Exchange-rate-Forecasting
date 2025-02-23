@@ -11,13 +11,13 @@ This project focuses on forecasting currency exchange rates using **machine lear
 To install the necessary libraries for this project, please use the `requirements.txt` file:
 ```bash
 pip install -r requirements.txt
-
+```
 ### Yahoo Finance API Update:
 Please note that the Yahoo Finance API has been updated recently. As a result, when fetching the data, it will no longer be in a simple 2D format. Instead, the fetched data is now in a multi-index format. Be aware of this change when working with the data.
 
-Running the Streamlit App
+### Running the Streamlit App
 To run the Streamlit app, use the following command:
 ```bash
 streamlit run <path-to-your-project>/app.py
-
+```
 Replace <path-to-your-project> with the path to your project's directory.
