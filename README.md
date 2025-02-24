@@ -28,11 +28,9 @@ Replace <path-to-your-project> with the path to your project's directory.
 
 ```bash
  sudo apt-get update -y
-sudo apt-get upgrade
-```
-### Install Docker
 
-```bash 
+sudo apt-get upgrade
+# Install Docker
 curl -fsSL https://get.docker.com -o get-docker.sh
 
 sudo sh get-docker.sh
