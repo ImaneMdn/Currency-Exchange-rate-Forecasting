@@ -22,9 +22,9 @@ streamlit run <path-to-your-project>/app.py
 ```
 Replace <path-to-your-project> with the path to your project's directory.
 ### Deploying Streamlit App Using Docker on AWS EC2
-1. Login with  AWS console and launch an EC2 instance.
-2. Run the following commands:
-Note: Do the port mapping to this port:- 8501
+### 1. Login with  AWS console and launch an EC2 instance.
+### 2. Run the following commands:
+**Note:** Do the port mapping to this port:- 8501
 
 ```bash
  sudo apt-get update -y
@@ -34,18 +34,34 @@ sudo apt-get upgrade
 
 ```bash 
 curl -fsSL https://get.docker.com -o get-docker.sh
+
 sudo sh get-docker.sh
+
 sudo usermod -aG docker ubuntu
+
 newgrp docker
+```
+```bash
 git clone "project"
-docker build -t imy14/stapp:latest . 
-docker images -a  
-docker run -d -p 8501:8501 imy14/stapp 
-docker ps  
+
+docker build -t imy14/stapp:latest .
+ 
+docker images -a
+
+docker run -d -p 8501:8501 imy14/stapp
+
+docker ps
+
 docker stop container_id
+
 docker rm $(docker ps -a -q)
-docker login 
-docker push imy14/stapp:latest 
+
+docker login
+
+docker push imy14/stapp:latest
+
 docker rmi imy14/stapp:latest
+
 docker pull imy14/stapp
+
 ```
